@@ -46,14 +46,16 @@ function projectsFunc(){
       <ul>
         {projects.map(project => 
           <li>
-            <img
-              src= {project.img}
-              alt = {project.name}
-            />
             <p>
               <b>{project.name}:</b>
               {' ' + project.description + ' '}
             </p>
+            <img
+              src= {project.img}
+              alt = {project.name}
+              width = "500"
+              height = "200"
+            />
           </li>
         )}
       </ul>

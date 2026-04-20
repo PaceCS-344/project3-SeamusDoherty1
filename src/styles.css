@@ -1,3 +1,11 @@
 h1{
     text-align: left;
+    color: blue;
+}
+p1{
+    color: green;
+}
+li{
+    color: aqua;
+    background-color: black;
 }
