@@ -1,5 +1,6 @@
 import styles from "./styles.css";
 import { projects } from "./Projects";
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 const headerNames = {
   aboutMe: "About Me",
   Skills: "Skills",
@@ -15,16 +16,16 @@ const contactDetails = {
   linkedIn: "www.linkedin.com/in/seamus-doherty-1a84173b0",
   gitHub: "https://github.com/SeamusDoherty1"
 };
-function aboutMeFunc(){
+function AboutMeFunc(){
   return(
     <>
       <h1>{headerNames.aboutMe}</h1>
-      <p1>{aboutMeInformation.name},<br></br>{aboutMeInformation.DOB}, <br></br>{aboutMeInformation.University}</p1>
+      <p>{aboutMeInformation.name},<br></br>{aboutMeInformation.DOB}, <br></br>{aboutMeInformation.University}</p>
       
     </>
   );
 }
-function skillsFunc(){
+function SkillsFunc(){
   return(
     <>
       <h1>{headerNames.Skills}</h1>
@@ -39,7 +40,7 @@ function skillsFunc(){
     </>
   )
 }
-function projectsFunc(){
+function ProjectsFunc(){
   return(
     <>
       <h1>{headerNames.Projects}</h1>
@@ -62,18 +63,36 @@ function projectsFunc(){
     </>
   )
 }
+function Contact(){
+  return(
+    <>
+    <div id="contacts">
+      <h2>Contact Details</h2>
+      <p2><a href={contactDetails.linkedIn}>LinkedIn</a> | <a href={contactDetails.gitHub}>Github</a> | {contactDetails.email} </p2>
+    </div>
+    </>
+  )
+}
 export default function Headers() {
    return (
-     <>
-     <div>
-      {aboutMeFunc()}
-     </div>
-     <div>
-      {skillsFunc()}
-     </div>
-     <div>
-      {projectsFunc()}
-     </div>
+    <>
+    <BrowserRouter>
+      {/* Navigation */}
+      <nav>
+        <Link to="/aboutme">About Me</Link> |{" "}
+        <Link to="/contact">Contact</Link> | {" "}
+        <Link to="/skills">Skills</Link> | {" "}
+        <Link to="/projects">Projects</Link>
+      </nav>
+
+      {/* Routes */}
+      <Routes>
+        <Route path="/aboutme" element={<AboutMeFunc />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/skills" element={<SkillsFunc />} />
+        <Route path="/projects" element={<ProjectsFunc />} />
+      </Routes>
+    </BrowserRouter>
      </>
    );
 

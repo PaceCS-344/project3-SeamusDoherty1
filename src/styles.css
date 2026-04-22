@@ -1,11 +1,16 @@
 h1{
-    text-align: left;
+    text-align: center;
     color: blue;
 }
-p1{
+p{
     color: green;
+    text-align: center;
 }
 li{
-    color: aqua;
-    background-color: black;
+    color:darkgreen;
+    text-align: center;
+}
+#contacts{
+    text-align: center;
+    color:blueviolet;
 }
