@@ -1,6 +1,7 @@
 import styles from "./styles.css";
 import { projects } from "./Projects";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 const headerNames = {
   aboutMe: "About Me",
   Skills: "Skills",
@@ -9,7 +10,8 @@ const headerNames = {
 const aboutMeInformation = {
   name: "Seamus Doherty",
   DOB : "March 31st, 2006",
-  University: "Pace University"
+  University: "Pace University",
+  Photo : "../Rathalos_flying.png"
 };
 const contactDetails = {
   email: "sd30149p@pace.edu",
@@ -17,10 +19,20 @@ const contactDetails = {
   gitHub: "https://github.com/SeamusDoherty1"
 };
 function AboutMeFunc(){
+  const [isShown, setIsShown] = useState(false);
   return(
     <>
       <h1>{headerNames.aboutMe}</h1>
+      <div 
+        onMouseEnter={() => setIsShown(true)}
+        onMouseLeave={() => setIsShown(false)}
+        style={{ border: '1px solid black', padding: '10px', width: '200px' }}
+      >
       <p>{aboutMeInformation.name},<br></br>{aboutMeInformation.DOB}, <br></br>{aboutMeInformation.University}</p>
+      {isShown && (
+        <img src= "../SoBotzApplication.png" width = '500' height = '200' align = 'center'/>
+      )}
+      </div>
     </>
   );
 }
@@ -50,13 +62,12 @@ function ProjectsFunc(){
               <b>{project.name}:</b>
               {' ' + project.description + ' '}
             </p>
-            <InteractiveCard>Click ME!</InteractiveCard>
-            <img
+              <img
               src= {project.img}
               alt = {project.name}
-              width = "500"
-              height = "200"
-            />
+              width = '500'
+              height = '200'
+              />
           </li>
         )}
       </ul>
@@ -73,23 +84,32 @@ function Contact(){
     </>
   )
 }
+function darkMode(){
+    var element = document.body;
+    element.classList.toggle(".dark-mode");
+}
+function EasterEgg(){
+  return(
+    <>
+
+    </>
+  )
+}
 export default function Headers() {
    return (
     <>
-    <div>
-    <input type="checkbox" id="themeSwitch" name="theme-switch" class="theme-switch__input" />
-	    <label for="themeSwitch" class="theme-switch__label">
-		    <span>Switch theme</span>
-	    </label>
-    </div>
+    <body>
+    <button onclick="darkMode()">Toggle Dark and Light mode</button>
     <BrowserRouter>
       {/* Navigation */}
+      <div id="Nav-Header">
       <nav>
         <Link to="/aboutme">About Me</Link> |{" "}
         <Link to="/contact">Contact</Link> | {" "}
         <Link to="/skills">Skills</Link> | {" "}
         <Link to="/projects">Projects</Link>
       </nav>
+      </div>
 
       {/* Routes */}
       <Routes>
@@ -99,8 +119,10 @@ export default function Headers() {
         <Route path="/projects" element={<ProjectsFunc />} />
       </Routes>
     </BrowserRouter>
+    </body>
      </>
    );
+
 
 }
 
