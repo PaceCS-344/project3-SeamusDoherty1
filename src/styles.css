@@ -50,3 +50,6 @@ li{
 	text-align: center;
 	border: 100px;
 }
+#centered{
+  align-items: center;
+}
