@@ -31,7 +31,7 @@ function Contact(){
 export default function Headers() {
    return (
     <div className="app-container"> {/* Use a div instead of body[cite: 5] */}
-      <BrowserRouter>
+      <BrowserRouter basename="/portfolio">
         <div id="Nav-Header">
           <nav>
             <Link to="/aboutme">About Me</Link> |{" "}
@@ -41,6 +41,8 @@ export default function Headers() {
           </nav>
         </div>
         <Routes>
+          <Route path="/" element={<AboutMeFunc />} />
+          
           <Route path="/aboutme" element={<AboutMeFunc />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/skills" element={<SkillsFunc />} />
