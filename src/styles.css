@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather:400,400i,700");
+
+body {
+  background-color: white;
+}
+
+.dark-mode{
+  background-color: black;
+}
+h1{
+    text-align: center;
+    color: blue;
+}
+p{
+    color: green;
+    text-align: center;
+}
+li{
+    color:darkgreen;
+    text-align: center;
+}
+#contacts{
+    text-align: center;
+    color:blueviolet;
+}
+#Nav-Header{
+	position: sticky;
+	top: 0;
+	zIindex: 100;
+	background-color: green;
+	color: maroon;
+	text-align: center;
+	border: 100px;
+}
+.container {
+  position: relative;
+  width: 50%;
+  margin: auto;
+}
+
+.image {
+  display: block;
+  width: 50%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
