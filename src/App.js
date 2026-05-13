@@ -31,7 +31,7 @@ function Contact(){
 export default function Headers() {
    return (
     <div className="app-container"> {/* Use a div instead of body[cite: 5] */}
-      <BrowserRouter basename="/portfolio">
+      <BrowserRouter basename="/project3-SeamusDoherty1">
         <div id="Nav-Header">
           <nav>
             <Link to="/aboutme">About Me</Link> |{" "}
